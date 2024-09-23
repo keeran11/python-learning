@@ -91,3 +91,27 @@ print(MyClassWithStaticMethod.static_greet())  # Output: Hello from a static met
 '''In Python, classes are objects themselves, which means you can manipulate them just like any other object.
 You can pass classes as arguments to functions, return them from functions, store them in collections, and assign them to variables.
 This flexibility is a key feature of Python's dynamic and powerful object-oriented programming model.'''
+
+
+'''classX(Y) "make a class named X that is -a Y.
+class X(object): def__init__(self,j) "class X has __init__that takes self and j parameters
+class X (object):def M (self,J) "class X has-a function named M that takes self and J parameters.
+foo = X() "set foo to an instance of class X."
+foo.M(j) "from foo get the M function , and cal it with parameter self ,j.
+foo.K =Q "from foo get the K attribute , and set it to Q.
+"we can also write like this"
+
+1."Make a class named ??? that is-a Y.”
+2.“class ??? has-a __init__ that takes self and ??? parameters.”
+3.“class ??? has-a function named ??? that takes self and ??? parameters.”
+4.“Set foo to an instance of class ???.”
+5.“From foo get the ??? function, and call it with self=??? and parameters ???.”
+6.“From foo get the ??? attribute and set it to ???.”
+
+
+
+
+
+
+
+'''
