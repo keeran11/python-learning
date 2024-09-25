@@ -20,6 +20,8 @@
 * The Bridge
 * Escape Pod'''
 
+from sys import exit
+
 class Scene(object):
     def enter(self):
         print("This scene is not yet configured.")
@@ -35,15 +37,30 @@ class Engine(object):
 
         while current_scene != last_scene:
             next_scene_name = current_scene.enter()
+            
+            if next_scene_name is None:
+                print(f"Error: No scene returned from {current_scene}. Exiting game.")
+                break
+
             current_scene = self.scene_map.next_scene(next_scene_name)
+
+           
+            if current_scene is None:
+                print(f"Error: Scene '{next_scene_name}' not found. Exiting game.")
+                break
+            
 
        
         current_scene.enter()
-
 class Death(Scene):
     def enter(self):
         print("You died. Game over!")
-        return 'death'
+        return 'finished'
+    
+class Finished(Scene):
+    def enter(self):
+        print("The game is over. Thanks for playing!")
+        return 0
 
 class CentralCorridor(Scene):
     def enter(self):
@@ -60,6 +77,7 @@ class CentralCorridor(Scene):
         elif action == "2":
             print("The Gothon laughs, and you sneak by!")
             return 'laser_weapon_armory'
+        
         else:
             print("DOES NOT COMPUTE!")
             return 'central_corridor'
@@ -68,11 +86,12 @@ class LaserWeaponArmory(Scene):
     def enter(self):
         print("You've entered the Laser Weapon Armory.")
         print("You need the code to unlock the bomb. The code is 3 digits.")
-
-        code = "123"
+        print("hint:there is a virus which afect you")
+        code = "143"
         guess = input("[keypad]> ")
 
         if guess == code:
+            print("you are correct , you are smarter then me")
             print("You got the bomb!")
             return 'the_bridge'
         else:
@@ -93,7 +112,7 @@ class TheBridge(Scene):
             return 'escape_pod'
         else:
             print("The bomb explodes, and you die.")
-            return 'death'
+            return 'finished'
 
 class EscapePod(Scene):
     def enter(self):
@@ -116,7 +135,8 @@ class Map(object):
         'laser_weapon_armory': LaserWeaponArmory(),
         'the_bridge': TheBridge(),
         'escape_pod': EscapePod(),
-        'death': Death()
+        'death': Death(),
+        'finished' : Finished()
     }
 
     def __init__(self, start_scene):
