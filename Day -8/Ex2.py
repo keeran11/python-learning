@@ -72,10 +72,23 @@ combining the results to produce the final output.'''
 
 #using list comprehension
 
-def reverse_string_list_comprehension(s):
-     print(''.join([s[i] for i in range(len(s)-1, -1,-1)]))
+# def reverse_string_list_comprehension(s):
+#      print(''.join([s[i] for i in range(len(s)-1, -1,-1)]))
     
-reverse_string_list_comprehension('kiran')
+# reverse_string_list_comprehension('kiran')
 # This approach builds a list of characters by iterating over the string backwards and joins the list into a string.
+
+
+# l1 = ['item1', 'item2', 'item3']
+# join1 = ",".join(l1) #join le saab lai liyera string ma change  gardido raixa
+# #join method chai string ma matra kaam haarna number ma chai kaam gaardaina
+
+# print(join1)
+
+
+def ReverseString(string):
+    cis = "".join(reversed(string))
+    print(cis)
+ReverseString("python")
 
 
