@@ -58,3 +58,108 @@ is called as recursion'''
 
 #print your name 10 times without using loop and manually
 
+# count = 1
+
+# def printer(name):
+#     global count
+#     if count <=10:
+#         print(name)
+#         count +=1
+#         printer(name)
+# printer("kiran")
+    
+
+
+#factorical using recursion
+#base case
+# recursion case
+
+# n = int(input('Enter number'))
+
+# def fact(n):
+
+#     if n ==0:
+#         return 1
+#     else:
+#         return n*fact(n-1)
+    
+# if n<0:
+#     print('factorial of negatiove cannot be calculated')
+# elif n==0:
+#     print(f'factorial of 0 is 1')
+
+# else:
+#     result = fact(n)
+
+# print(result)
+
+'''
+2 raised to 5:- 2*2*2*2*2
+2*2(4)
+2*2*2(3)
+2*2*2*2(2)
+2*2*2*2*2(1)
+
+'''
+
+# def power(n,p):
+#     if p==0:
+#         return 1
+#     return n*power(n,p-1)
+
+# print(power(2,5))
+
+
+#checking  the prime number 
+
+
+# def prime(n,i):
+#     if i==1:
+#         return 1
+#     if n%i ==0:
+#         return 0
+#     return prime(n,i-1)
+
+# n = int(input("Enter the number:"))
+# ind = prime(n, n-1)
+
+# if ind ==1:
+#     print('prime number')
+
+# if ind == 0:
+#     print("Not a prime number")
+
+#python program for counting number of digits in given number 
+
+# def count_of(n):
+#     if n<10:
+#         return 1
+#     return 1+count_of(n//10)
+
+# n=int(input("Enter the number: "))
+# print(count_of(n))
+
+
+
+
+#python program for fibonacci series using Recurison
+
+
+def fibo(n):
+    if n ==1:
+        return 0
+    if n ==2:
+        return 1
+    return (fibo(n-2)+fibo(n-1))
+    
+    
+
+n= int(input("Enter number of terms:"))
+for i in range(1,n+1):
+    print(fibo(i))
+
+result = 0
+for j in fibo(i):
+    result +=j
+    print(result)
+
